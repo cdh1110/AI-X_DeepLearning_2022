@@ -1,4 +1,4 @@
-# AI-X_DeepLearning_2022Fall
+# AI-X_DeepLearning_2022Fall_FinalProject
 ## Title
 **Exploring Survival in the Hospital**(입원 중인 환자의 생존률)
 
