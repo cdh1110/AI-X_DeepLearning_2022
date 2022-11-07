@@ -15,7 +15,7 @@
 
 ## I. Proposal (Option A)
 
-- Motivation: <br> 본 수업에서 제공된 타이타닉 예제, Exploring Survivals on Titanic 글은 ML의 기초를 다질 입문 과정으로 적합해 보입니다. 따라서 공부와 연습을 위해 그와 유사한 타입의 주제를 선정하고 싶었습니다. Kaggle과 각종 공공데이터 웹사이트를 이용해 Binary Classification이면서, Feature Engineering, EDA를 연습하기 좋은 데이터를 검색하여 여러 후보들을 추리고 조원과 상의한 결과, 현 주제인 Patient Survival Prediction으로 최종 결정했습니다. 제공된 데이터 feature의 종류가 85개에다, 결측치도 간간히 포함되어 있어 보다 팀 프로젝트에 최적인 양으로 보이고, 실재 기반 데이터이며 예측 모델을 성공적으로 구축 시, '사망'을 예방할 수 있다는 실용적인 의미도 있는 것이 그 이유입니다.   
+- Motivation: <br> 본 수업에서 제공된 타이타닉 예제, Exploring Survivals on Titanic 글은 ML의 기초를 다질 입문 과정으로 적합해 보입니다. 따라서 공부와 연습을 위해 그와 유사한 타입의 주제를 선정하고 싶었습니다. Kaggle과 각종 공공데이터 웹사이트를 이용해 Binary Classification이면서, Feature Engineering, EDA를 연습하기 좋은 데이터를 검색하여 여러 후보들을 추리고 조원과 상의한 결과, 현 주제인 Patient Survival Prediction으로 최종 결정했습니다. 제공된 feature의 종류가 85개에다, 결측치도 간간히 포함되어 있어 보다 팀 프로젝트에 최적인 양으로 보이고, 실재 기반 데이터이며 예측 모델을 성공적으로 구축 시, '사망'을 예방할 수 있다는 실용적인 의미도 있는 것이 그 이유입니다.   
 
 - What do you want to see at the end?: <br> 내적으로는, 입원 중인 환자의 병원 내 사망률에 대한 주 요인을 파악하고, 이에 머신러닝 기반의 예측 모델을 구축하는 것이 목표입니다. <br> 외적으로는 다음의 학습 목표를 통해 EDA와 ML의 기초를 다지는 것입니다. <ol> -약 80여개의 다양한 feature중 중요 feature을 선별 <br> -일부 행에 존재하는 결측치를 합리적으로 처리(단순 삭제 vs 합리적 예측) <br> -머신러닝에 사용되는 알고리즘을 이해하고 실전 데이터에 적용 
 
