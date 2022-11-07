@@ -1,5 +1,6 @@
 # AI-X_DeepLearning_2022Fall
-## Title: Exploring Survival in the Hospital(입원 중인 환자의 생존률)
+## Title:
+**Exploring Survival in the Hospital(입원 중인 환자의 생존률)
 
 ## Members:
 <br> + 차도현, 물리학과, chamena1110@gmail.com <br> + Name2, Department, Email <br> + Name3, Department, Email 
