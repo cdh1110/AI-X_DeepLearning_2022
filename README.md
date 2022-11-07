@@ -34,7 +34,12 @@ III. Methodology
 
 IV. Evaluation & Analysis
 - Graphs, tables, any statistics (if any)
+  
 V. Related Work (e.g., existing studies)
 - Tools, libraries, blogs, or any documentation that you have used to do this project.
+  
 VI. Conclusion: Discussion
-Feel free to use any format you like. 
+- Feel free to use any format you like. 
+  
+V. Related Work (e.g., existing studies)
+- Tools, libraries, blogs, or any documentation that you have used to do this project.
