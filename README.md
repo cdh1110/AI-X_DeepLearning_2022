@@ -1,5 +1,5 @@
 # AI-X_DeepLearning_2022Fall
-**Title: Exploring Survival in the Hospital(입원 중인 환자의 생존률)**
+**Title:** Exploring Survival in the Hospital(입원 중인 환자의 생존률)
 
 **Members:**
 
@@ -8,6 +8,7 @@
 Name2, Department, Email
 
 Name3, Department, Email 
+
 
 **I. Proposal (Option A)**
 
@@ -29,7 +30,7 @@ What do you want to see at the end?:
 
 **II. Datasets**
 
--데이터는 다음의 kaggle 웹사이트로부터 얻었습니다.
+- 데이터는 다음의 kaggle 웹사이트로부터 얻었습니다.
 https://www.kaggle.com/datasets/mitishaagarwal/patient 
 
 타이타닉 예제와 같은 binary classification입니다.
