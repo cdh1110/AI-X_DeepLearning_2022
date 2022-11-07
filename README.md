@@ -3,29 +3,18 @@
 
 **Members:**
 
-차도현, 물리학과, chamena1110@gmail.com
++ 차도현, 물리학과, chamena1110@gmail.com
 
-Name2, Department, Email
++ Name2, Department, Email
 
-Name3, Department, Email 
++ Name3, Department, Email 
 
 
 **I. Proposal (Option A)**
 
-Motivation:
+- Motivation:  (추가 예정)
 
-(추가 예정)
-
-What do you want to see at the end?:
-
-내적으로는, 입원 중인 환자의 병원 내 사망률에 대한 주요 요인을 파악하고, 이에 머신러닝에 기반한 예측 모델을 개발하는 것이 목표입니다.
-외적으로는 다음의 학습 목표를 통해 EDA와 ML의 기초를 다지는 것입니다.
-
-- 약 80여개의 다양한 feature중 중요 feature을 선별
-
-- 일부 행에 존재하는 결측치를 합리적으로 처리(단순 삭제 vs 합리적 예측)
-
-- 머신러닝에 사용되는 알고리즘을 이해하고 실전 데이터에 적용 
+- What do you want to see at the end?:  내적으로는, 입원 중인 환자의 병원 내 사망률에 대한 주요 요인을 파악하고, 이에 머신러닝에 기반한 예측 모델을 개발하는 것이 목표입니다.  외적으로는 다음의 학습 목표를 통해 EDA와 ML의 기초를 다지는 것입니다.  - 약 80여개의 다양한 feature중 중요 feature을 선별- 일부 행에 존재하는 결측치를 합리적으로 처리(단순 삭제 vs 합리적 예측)- 머신러닝에 사용되는 알고리즘을 이해하고 실전 데이터에 적용 
 
 
 **II. Datasets**
