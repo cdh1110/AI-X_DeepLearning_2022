@@ -1,7 +1,7 @@
 # AI-X_DeepLearning_2022Fall
-##**Title:** Exploring Survival in the Hospital(입원 중인 환자의 생존률)
+##Title: Exploring Survival in the Hospital(입원 중인 환자의 생존률)
 
-##**Members:** <br> + 차도현, 물리학과, chamena1110@gmail.com + Name2, Department, Email + Name3, Department, Email 
+##Members: <br> + 차도현, 물리학과, chamena1110@gmail.com <br> + Name2, Department, Email <br> + Name3, Department, Email 
 
 ##Index
 ####    I. Proposal
@@ -11,14 +11,14 @@
 ####    V. Related Works
 ####    VI. Conclusion: Discussion
 
-##**I. Proposal (Option A)**
+##I. Proposal (Option A)
 
 - Motivation: <br> (추가 예정)
 
 - What do you want to see at the end?: <br> 내적으로는, 입원 중인 환자의 병원 내 사망률에 대한 주요 요인을 파악하고, 이에 머신러닝에 기반한 예측 모델을 개발하는 것이 목표입니다. <br> 외적으로는 다음의 학습 목표를 통해 EDA와 ML의 기초를 다지는 것입니다. <ol> -약 80여개의 다양한 feature중 중요 feature을 선별 <br> -일부 행에 존재하는 결측치를 합리적으로 처리(단순 삭제 vs 합리적 예측) <br> -머신러닝에 사용되는 알고리즘을 이해하고 실전 데이터에 적용 
 
 
-##**II. Datasets**
+##II. Datasets
 
 - 데이터는 다음의 kaggle 웹사이트로부터 얻었습니다.
 https://www.kaggle.com/datasets/mitishaagarwal/patient 
