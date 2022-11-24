@@ -28,7 +28,7 @@ https://www.kaggle.com/datasets/mitishaagarwal/patient
 ICU()입원 환자의 여러 특징과 해당 환자 사망 여부를 나타낸 데이터입니다. 환자가 생존 했을 경우 0, 사망 했을 경우 1입니다. 
 *타이타닉 예제와 같은 binary classification입니다. 약 80개나 되는 다양한 feature가 존재하고 중간중간 결측치(Null, NaN) 또한 가지고 있어 EDA에 대부분의 시간이 할애될 것입니다. 따라서 이 두 가지 특징 때문에, 본 프로젝트는 타이타닉 예제와 매우 유사한 방식으로 진행될 것이 예상됩니다. Feature engineering, Missing value imputation, Prediction*
 
-# II-1. Data overview
+### II-1. Datasets Overview
 
 먼저 데이터 분석에 필요한 패키지들을 불러옵니다.
 ```R
@@ -159,7 +159,7 @@ str(data)
 |???| ??? |
 |hospital_death| 사망(1), 생존(0)  |   
 
-        
+### II-2. Check missing values        
         
         
         
