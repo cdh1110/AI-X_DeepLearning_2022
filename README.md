@@ -28,7 +28,7 @@ https://www.kaggle.com/datasets/mitishaagarwal/patient
 ICU()입원 환자의 여러 특징과 해당 환자 사망 여부를 나타낸 데이터입니다. 환자가 생존 했을 경우 0, 사망 했을 경우 1입니다. 
 *타이타닉 예제와 같은 binary classification입니다. 약 80개나 되는 다양한 feature가 존재하고 중간중간 결측치(Null, NaN) 또한 가지고 있어 EDA에 대부분의 시간이 할애될 것입니다. 따라서 이 두 가지 특징 때문에, 본 프로젝트는 타이타닉 예제와 매우 유사한 방식으로 진행될 것이 예상됩니다. Feature engineering, Missing value imputation, Prediction*
 
-### II-1. Datasets Overview
+### II-1. Overview
 
 먼저 데이터 분석에 필요한 패키지들을 불러옵니다.
 ```R
@@ -132,7 +132,7 @@ str(data)
  $ hospital_death               : int  0 0 0 0 0 0 0 0 1 0 ...
         
 ```    
-총 **91713명**의 환자에 대한 **85개**의 변수를 확인할 수 있습니다.<br>각 변수에 대한 설명을 간략히 아래 표로 정리했습니다. (자세한 설명은 뒤에 이어서 합니다.)
+총 **91713명**의 환자에 대한 **85개**의 변수를 확인할 수 있습니다.<br>각 변수에 대한 설명을 간략히 아래 표로 정리했습니다. (자세한 설명은 섹션 III에 이어서 합니다.)
         
 | 변수 이름 | 설명 |
 | ------------- | ------------- |
@@ -160,7 +160,7 @@ str(data)
 |???| ??? |
 |hospital_death| 사망(1), 생존(0)  |   
 
-### II-2. Check missing values        
+### II-2. Check Missing Values        
 데이터의 결측치를 확인합니다.
    <code>is.na()</code>를 이용해서 결측치를 간단히 확인하는 것도 좋지만,
 ```R
@@ -271,7 +271,7 @@ print(naniar::miss_var_summary(data),n=85)
 85 hospital_death                     0   0 
 ``` 
 결측치 개수에 따라 내림차순으로 정리한 결과를 얻었습니다. 각 3개의 열은 변수의 이름, 결측치, 결측 퍼센티지를 나타냅니다. <br> 첫 줄을 살펴보면, "X" 열이 91713개로, 100% 비율로 결측치를 가지고 있습니다. 열 이름에서 유추할 수 있듯 아무런 의미가 없는 열입니다.
-따라서 "X" 열은 삭제합니다.
+<br>따라서 "X" 열은 **삭제**합니다.
 ```R  
 data <- subset(data, select=-c(X))
 ```
@@ -295,9 +295,10 @@ naniar::miss_var_summary(data)
 10 h1_sysbp_noninvasive_min        7341     8.00
 # … with 74 more rows  
 ```  
-'X'행이 삭제되고 84개열이 정상적으로 남겨 확인할 수 있습니다.    
-  
-  
+'X'행이 삭제되고 84개열이 정상적으로 남겨졌음을 확인할 수 있습니다.
+
+### II-3. Some Visualizations of the Dataset   
+ 
   
   
   
