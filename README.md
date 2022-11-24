@@ -270,8 +270,11 @@ print(naniar::miss_var_summary(data),n=85)
 84 apache_post_operative              0   0     
 85 hospital_death                     0   0 
 ``` 
-결측치 개수에 따라 내림차순으로 정리한 결과를 얻었습니다. 각 3개의 열은 변수의 이름, 결측치, 결측 퍼센티지를 나타냅니다. <br> 첫 줄을 살펴보면, "X" 열이 91713개로, 100% 비율로 결측치를 가지고 있습니다. 열 이름에서 유추할 수 있듯 아무런 의미가 없는 열입니다.
-<br>따라서 "X" 열은 **삭제**합니다.
+결측치 개수에 따라 내림차순으로 정리한 결과를 얻었습니다. 각 3개의 열은 변수의 이름, 결측치, 결측 퍼센티지를 나타냅니다. 
+
+### II-3. Analysis of Missing Values   
+
+위 tibble 프레임의 첫 줄을 살펴보면, "X" 열의 결측값이 91713개로, 100% 비율의 결측을 가지고 있습니다. <br>열 이름에서 유추할 수 있듯 *아무런 의미가 없는* 열이기 때문에 "X" 열은 **삭제**합니다.
 ```R  
 data <- subset(data, select=-c(X))
 ```
@@ -296,11 +299,32 @@ naniar::miss_var_summary(data)
 # … with 74 more rows  
 ```  
 'X'행이 삭제되고 84개열이 정상적으로 남겨졌음을 확인할 수 있습니다.
+<br>
+<br>이번에는 결측치가 한 개도 존재하지 않는 행의 개수를 확인합니다.
+```R  
+nona <- sum(complete.cases(data)) #결측치가 없는 행의 개수 
+yesna <- sum(!complete.cases(data)) #결측치가 있는 행의 개수
+rows_with_na <- list(Non_NA = nona, With_NA = yesna, SUM = nona + yesna) #리스트에 저장
+unlist(rows_with_na) #출력
+```
+```
+  No_NA With_NA     Sum 
+  56935   34778   91713 
+```
 
-### II-3. Some Visualizations of the Dataset   
- 
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 ## III. Methodology 
 - Explaining your choice of algorithms (methods)
