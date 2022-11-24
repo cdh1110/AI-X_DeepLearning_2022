@@ -143,32 +143,20 @@ str(data)
 |elective_surgery| 선택적 수술 동의(1), 거부(0) |
 |ethnicity| 인종  |
 |gender| 성별  |
-|height| 키  |                        
-|icu_admit_source| 환자의 입원 전 장소  |
-|icu_id| 집중치료실 ID  |                    
-|icu_stay_type| 입실 방법  |        
-|icu_type|  집중치료실의 종류 |
-|pre_icu_los_days| 입실 허가 소요 시간  |
-|weight| 체중  |
-|apache_2_diagnosis| 의학적 점수 1  |           
-|apache_3j_diagnosis| 의학적 점수 2 |
+|height| 키  |
+|weight| 체중 | 
+|icu_~| 집중치료실(ICU) 관련 데이터  |
+|apache_~| 의학적 점수인 APACHE2,3와 관련 데이터 |           
 |apache_post_operative| 수술 받음(1), 받지 않음(0) |
-|arf_apache| 급성신부전 여부  |
-|gcs_eyes_apache| 글래스고 혼수척도 (개안 반응) |         
-|gcs_motor_apache| 글래스고 혼수척도 (운동 반응)  |
-|gcs_unable_apache| 글래스고 혼수척도 측정 불가 여부  |
-|gcs_verbal_apache| 글래스고 혼수척도 (언어 반응)   |
-|heart_rate_apache| 심박수(APA III) |            
-|resprate_apache| 호흡수((APA III)) |
-|...| ...  |  
+|gcs_~| 글래스고 혼수척도 관련 데이터 |          
 |d1_heartrate_max/min| 최고/최저 심박수(24h) |
 |...| ...  |
 |h1_heartrate_max/min| 최고/최저 심박수(1h) |
 |...| ...  |
-|(하리님 파트)| () |
-|()| () |        
-|AIDS| 에이즈 병력(1), 이상없음(0) |        
-|()| () |                
+|(하리님 파트)| (위아래 예시 처럼 작성해주세요) |       
+|aids/cirrhosis/...| 에이즈/경화증/... 관련 병력(1), 이상없음(0) |        
+|???| ??? |
+|???| ??? |
 |hospital_death| 사망(1), 생존(0)  |   
 
         
