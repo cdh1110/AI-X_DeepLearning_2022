@@ -34,12 +34,13 @@ ICU()입원 환자의 여러 특징과 해당 환자 사망 여부를 나타낸 
 ```R
 library('dplyr') #data manipulation
 library('tidyr') #data manipulation
+library('naniar') #NA manipulation
 library('VIM') #visualization
 library('ggplot2') #visualization
 ```
 이제 데이터를 로드합니다.
 ```R
-data <- read.csv('./project_data.csv')
+data <- read.csv('./project_data.csv', stringsAsFactors = F, na.strings = c("", " ","  ", NA))
 str(data)
 ```
 ```
@@ -160,15 +161,146 @@ str(data)
 |hospital_death| 사망(1), 생존(0)  |   
 
 ### II-2. Check missing values        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+데이터의 결측치를 확인합니다.
+   <code>is.na()</code>를 이용해서 결측치를 간단히 확인하는 것도 좋지만,
+```R
+df_null <- data.frame(colSums(is.na(data)))        
+head(df_null)
+```
+```
+                 colSums.is.na.data..
+encounter_id                        0
+patient_id                          0
+hospital_id                         0
+age                              4228
+bmi                              3429
+elective_surgery                    0
+```        
+<code>naniar</code> 패키지를 사용해 결측치를 좀 더 체계적으로 확인합니다.
+```R
+print(naniar::miss_var_summary(data),n=85)
+```        
+```        
+# A tibble: 85 × 3
+   variable                      n_miss pct_miss
+   <chr>                          <int>    <dbl>
+ 1 X                              91713 100     
+ 2 d1_potassium_max                9585  10.5   
+ 3 d1_potassium_min                9585  10.5   
+ 4 h1_mbp_noninvasive_max          9084   9.90  
+ 5 h1_mbp_noninvasive_min          9084   9.90  
+ 6 apache_4a_hospital_death_prob   7947   8.67  
+ 7 apache_4a_icu_death_prob        7947   8.67  
+ 8 h1_diasbp_noninvasive_max       7350   8.01  
+ 9 h1_diasbp_noninvasive_min       7350   8.01  
+10 h1_sysbp_noninvasive_max        7341   8.00  
+11 h1_sysbp_noninvasive_min        7341   8.00  
+12 d1_glucose_max                  5807   6.33  
+13 d1_glucose_min                  5807   6.33  
+14 h1_mbp_max                      4639   5.06  
+15 h1_mbp_min                      4639   5.06  
+16 h1_resprate_max                 4357   4.75  
+17 h1_resprate_min                 4357   4.75  
+18 age                             4228   4.61  
+19 h1_spo2_max                     4185   4.56  
+20 h1_spo2_min                     4185   4.56  
+21 temp_apache                     4108   4.48  
+22 h1_diasbp_max                   3619   3.95  
+23 h1_diasbp_min                   3619   3.95  
+24 h1_sysbp_max                    3611   3.94  
+25 h1_sysbp_min                    3611   3.94  
+26 bmi                             3429   3.74  
+27 h1_heartrate_max                2790   3.04  
+28 h1_heartrate_min                2790   3.04  
+29 weight                          2720   2.97  
+30 d1_temp_max                     2324   2.53  
+31 d1_temp_min                     2324   2.53  
+32 gcs_eyes_apache                 1901   2.07  
+33 gcs_motor_apache                1901   2.07  
+34 gcs_verbal_apache               1901   2.07  
+35 apache_2_diagnosis              1662   1.81  
+36 apache_3j_bodysystem            1662   1.81  
+37 apache_2_bodysystem             1662   1.81  
+38 d1_mbp_noninvasive_max          1479   1.61  
+39 d1_mbp_noninvasive_min          1479   1.61  
+40 ethnicity                       1395   1.52  
+41 height                          1334   1.45  
+42 resprate_apache                 1234   1.35  
+43 apache_3j_diagnosis             1101   1.20  
+44 d1_diasbp_noninvasive_max       1040   1.13  
+45 d1_diasbp_noninvasive_min       1040   1.13  
+46 gcs_unable_apache               1037   1.13  
+47 d1_sysbp_noninvasive_max        1027   1.12  
+48 d1_sysbp_noninvasive_min        1027   1.12  
+49 map_apache                       994   1.08  
+50 heart_rate_apache                878   0.957 
+51 arf_apache                       715   0.780 
+52 intubated_apache                 715   0.780 
+53 ventilated_apache                715   0.780 
+54 aids                             715   0.780 
+55 cirrhosis                        715   0.780 
+56 diabetes_mellitus                715   0.780 
+57 hepatic_failure                  715   0.780 
+58 immunosuppression                715   0.780 
+59 leukemia                         715   0.780 
+60 lymphoma                         715   0.780 
+61 solid_tumor_with_metastasis      715   0.780 
+62 d1_resprate_max                  385   0.420 
+63 d1_resprate_min                  385   0.420 
+64 d1_spo2_max                      333   0.363 
+65 d1_spo2_min                      333   0.363 
+66 d1_mbp_max                       220   0.240 
+67 d1_mbp_min                       220   0.240 
+68 d1_diasbp_max                    165   0.180 
+69 d1_diasbp_min                    165   0.180 
+70 d1_sysbp_max                     159   0.173 
+71 d1_sysbp_min                     159   0.173 
+72 d1_heartrate_max                 145   0.158 
+73 d1_heartrate_min                 145   0.158 
+74 icu_admit_source                 112   0.122 
+75 gender                            25   0.0273
+76 encounter_id                       0   0     
+77 patient_id                         0   0     
+78 hospital_id                        0   0     
+79 elective_surgery                   0   0     
+80 icu_id                             0   0     
+81 icu_stay_type                      0   0     
+82 icu_type                           0   0     
+83 pre_icu_los_days                   0   0     
+84 apache_post_operative              0   0     
+85 hospital_death                     0   0 
+``` 
+결측치 개수에 따라 내림차순으로 정리한 결과를 얻었습니다. 각 3개의 열은 변수의 이름, 결측치, 결측 퍼센티지를 나타냅니다. <br> 첫 줄을 살펴보면, "X" 열이 91713개로, 100% 비율로 결측치를 가지고 있습니다. 열 이름에서 유추할 수 있듯 아무런 의미가 없는 열입니다.
+따라서 "X" 열은 삭제합니다.
+```R  
+data <- subset(data, select=-c(X))
+```
+다시 간략히 확인해보면,
+```R  
+naniar::miss_var_summary(data)
+```
+```
+# A tibble: 84 × 3
+   variable                      n_miss pct_miss
+   <chr>                          <int>    <dbl>
+ 1 d1_potassium_max                9585    10.5 
+ 2 d1_potassium_min                9585    10.5 
+ 3 h1_mbp_noninvasive_max          9084     9.90
+ 4 h1_mbp_noninvasive_min          9084     9.90
+ 5 apache_4a_hospital_death_prob   7947     8.67
+ 6 apache_4a_icu_death_prob        7947     8.67
+ 7 h1_diasbp_noninvasive_max       7350     8.01
+ 8 h1_diasbp_noninvasive_min       7350     8.01
+ 9 h1_sysbp_noninvasive_max        7341     8.00
+10 h1_sysbp_noninvasive_min        7341     8.00
+# … with 74 more rows  
+```  
+'X'행이 삭제되고 84개열이 정상적으로 남겨 확인할 수 있습니다.    
+  
+  
+  
+  
+  
 ## III. Methodology 
 - Explaining your choice of algorithms (methods)
 - Explaining features (if any) 
