@@ -21,7 +21,12 @@
 
 
 ## II. Datasets
-
+ 
+ 
+<details><summary>내용 펼치기</summary>
+<p>
+ 
+ 
 - 데이터는 다음의 kaggle 웹사이트로부터 얻었습니다.
 https://www.kaggle.com/datasets/mitishaagarwal/patient 
 
@@ -320,7 +325,8 @@ unlist(rows_with_na) #출력
 대부분 1의 방식을 취할 것으로 예상되지만, 합당한 근거가 충분하다면 2번 또는 3번 방법을 사용해 결측치를 처리할 것입니다.
 
 
-
+</p>
+</details>
 
 
 
