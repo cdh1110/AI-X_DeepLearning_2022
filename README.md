@@ -25,7 +25,7 @@
 - 데이터는 다음의 kaggle 웹사이트로부터 얻었습니다.
 https://www.kaggle.com/datasets/mitishaagarwal/patient 
 
-입원 환자의 여러 특징과 해당 환자 사망 여부를 나타낸 데이터입니다. 환자가 생존 했을 경우 0, 사망 했을 경우 1입니다. 
+ICU()입원 환자의 여러 특징과 해당 환자 사망 여부를 나타낸 데이터입니다. 환자가 생존 했을 경우 0, 사망 했을 경우 1입니다. 
 *타이타닉 예제와 같은 binary classification입니다. 약 80개나 되는 다양한 feature가 존재하고 중간중간 결측치(Null, NaN) 또한 가지고 있어 EDA에 대부분의 시간이 할애될 것입니다. 따라서 이 두 가지 특징 때문에, 본 프로젝트는 타이타닉 예제와 매우 유사한 방식으로 진행될 것이 예상됩니다. Feature engineering, Missing value imputation, Prediction*
 
 # II-1. Data overview
@@ -133,37 +133,54 @@ str(data)
 ```    
 91713명의 환자에 대한 85개의 변수를 확인할 수 있습니다.
 각 변수에 대한 설명을 간략히 아래 표로 정리했습니다. (자세한 설명은 뒤에 이어서 합니다.)
-| 변수 이름  | 설명 |
+| 변수 이름 | 설명 |
 | ------------- | ------------- |
-| encounter_id   | Content Cell  |
-| patient_id    | Content Cell  |                    
-|hospital_id| Content Cell  |
-|age| Content Cell  |                        
-|bmi| Content Cell  |                           
-|elective_surgery| Content Cell  |
-|ethnicity| Content Cell  |
-|gender| Content Cell  |
-|height| Content Cell  |                        
-|icu_admit_source| Content Cell  |
-|icu_id| Content Cell  |                    
-|icu_stay_type| Content Cell  |        
-|icu_type| Content Cell  |
-|pre_icu_los_days| Content Cell  |
-|weight| Content Cell  |
-|apache_2_diagnosis| Content Cell  |           
-|apache_3j_diagnosis| Content Cell  |
-|apache_post_operative| Content Cell  |
-|arf_apache| Content Cell  |
-|gcs_eyes_apache| Content Cell  |         
-|gcs_motor_apache| Content Cell  |
-|gcs_unable_apache| Content Cell  |
-|gcs_verbal_apache| Content Cell  |
-|heart_rate_apache| Content Cell  |            
-|intubated_apache| Content Cell  |
-|map_apache| Content Cell  |
-|resprate_apache| Content Cell  |
-|temp_apache| Content Cell  |                 
-|ventilated_apache| Content Cell  |        
+| encounter_id   | 입원과 관련된 ID  |
+| patient_id    | 환자 ID  |                    
+|hospital_id| 병원 ID  |
+|age| 나이  |                        
+|bmi| 체질량지수  |                           
+|elective_surgery| 선택적 수술 동의(1), 거부(0) |
+|ethnicity| 인종  |
+|gender| 성별  |
+|height| 키  |                        
+|icu_admit_source| 환자의 입원 전 장소  |
+|icu_id| 집중치료실 ID  |                    
+|icu_stay_type| 입실 방법  |        
+|icu_type|  집중치료실의 종류 |
+|pre_icu_los_days| 입실 허가 소요 시간  |
+|weight| 체중  |
+|apache_2_diagnosis| 의학적 점수 1  |           
+|apache_3j_diagnosis| 의학적 점수 2 |
+|apache_post_operative| 수술 받음(1), 받지 않음(0) |
+|arf_apache| 급성신부전 여부  |
+|gcs_eyes_apache| 글래스고 혼수척도 (개안 반응) |         
+|gcs_motor_apache| 글래스고 혼수척도 (운동 반응)  |
+|gcs_unable_apache| 글래스고 혼수척도 측정 불가 여부  |
+|gcs_verbal_apache| 글래스고 혼수척도 (언어 반응)   |
+|heart_rate_apache| 심박수(APA III) |            
+|resprate_apache| 호흡수((APA III)) |
+|...| ...  |  
+|d1_heartrate_max/min| 최고/최저 심박수(24h) |
+|...| ...  |
+|h1_heartrate_max/min| 최고/최저 심박수(1h) |
+|...| ...  |
+|(하리님 파트)| () |
+|()| () |        
+|AIDS| 에이즈 병력(1), 이상없음(0) |        
+|()| () |                
+|hospital_death| 사망(1), 생존(0)  |   
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 ## III. Methodology 
 - Explaining your choice of algorithms (methods)
 - Explaining features (if any) 
