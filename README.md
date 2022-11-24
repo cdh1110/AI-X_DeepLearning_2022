@@ -130,9 +130,40 @@ str(data)
  $ X                            : logi  NA NA NA NA NA NA ...
  $ hospital_death               : int  0 0 0 0 0 0 0 0 1 0 ...
         
-```        
-        
-        
+```    
+91713명의 환자에 대한 85개의 변수를 확인할 수 있습니다.
+각 변수에 대한 설명을 간략히 아래 표로 정리했습니다. (자세한 설명은 뒤에 이어서 합니다.)
+| 변수 이름  | 설명 |
+| ------------- | ------------- |
+| encounter_id   | Content Cell  |
+| patient_id    | Content Cell  |                    
+|hospital_id| Content Cell  |
+|age| Content Cell  |                        
+|bmi| Content Cell  |                           
+|elective_surgery| Content Cell  |
+|ethnicity| Content Cell  |
+|gender| Content Cell  |
+|height| Content Cell  |                        
+|icu_admit_source| Content Cell  |
+|icu_id| Content Cell  |                    
+|icu_stay_type| Content Cell  |        
+|icu_type| Content Cell  |
+|pre_icu_los_days| Content Cell  |
+|weight| Content Cell  |
+|apache_2_diagnosis| Content Cell  |           
+|apache_3j_diagnosis| Content Cell  |
+|apache_post_operative| Content Cell  |
+|arf_apache| Content Cell  |
+|gcs_eyes_apache| Content Cell  |         
+|gcs_motor_apache| Content Cell  |
+|gcs_unable_apache| Content Cell  |
+|gcs_verbal_apache| Content Cell  |
+|heart_rate_apache| Content Cell  |            
+|intubated_apache| Content Cell  |
+|map_apache| Content Cell  |
+|resprate_apache| Content Cell  |
+|temp_apache| Content Cell  |                 
+|ventilated_apache| Content Cell  |        
 ## III. Methodology 
 - Explaining your choice of algorithms (methods)
 - Explaining features (if any) 
