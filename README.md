@@ -304,15 +304,20 @@ naniar::miss_var_summary(data)
 ```R  
 nona <- sum(complete.cases(data)) #결측치가 없는 행의 개수 
 yesna <- sum(!complete.cases(data)) #결측치가 있는 행의 개수
-rows_with_na <- list(Non_NA = nona, With_NA = yesna, SUM = nona + yesna) #리스트에 저장
+rows_with_na <- list(Non_NA = nona, With_NA = yesna, Sum = nona + yesna) #리스트에 저장
 unlist(rows_with_na) #출력
 ```
 ```
-  No_NA With_NA     Sum 
+ Non_NA With_NA     Sum 
   56935   34778   91713 
 ```
-
-
+총 91713 행 중 56935 행은 결측치가 없는 완전한 데이터이며, 나머지 34778 행은 1개 이상의 결측치가 존재합니다. 
+<br>즉, 단순히 결측치 행을 제거(Deletion)하면 전체 데이터의 약 38% 를 잃게 됩니다.
+<br>이 손실을 조금이라도 줄이고자, 각 변수들을 one by one 분석하면서 다음 세 가지의 처리 방식을 결정합니다.
+   1.제거 (Deletion)
+   2.대치 (Imputation)
+   3.예측 모델 (Prediction model)
+대부분 1의 방식을 취할 것으로 예상되지만, 합당한 근거가 충분하다면 2번 또는 3번 방법을 사용해 결측치를 처리할 것입니다.
 
 
 
@@ -329,7 +334,13 @@ unlist(rows_with_na) #출력
 ## III. Methodology 
 - Explaining your choice of algorithms (methods)
 - Explaining features (if any) 
-
+<details><summary>CLICK ME</summary>
+<p>
+ 
+ 각종 삽화들(너무 길어지면 여기다 놓기)
+ 
+</p>
+</details>
 ## IV. Evaluation & Analysis
 - Graphs, tables, any statistics (if any)
   
