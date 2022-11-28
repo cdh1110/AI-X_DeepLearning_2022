@@ -339,8 +339,8 @@ unlist(rows_with_na) #출력
 
   
 ## III. Methodology 
-- Explaining your choice of algorithms (methods)
-- Explaining features (if any) 
+
+- Explaining features
 
 <details><summary>내용펼치기</summary>
 <p>
@@ -349,13 +349,21 @@ unlist(rows_with_na) #출력
  
 </p>
 </details>
+
+- Explaining algorithms
+
+
 ## IV. Evaluation & Analysis
-- Graphs, tables, any statistics (if any)
+- Graphs, tables, any statistics
   
 ## V. Related Work (e.g., existing studies)
 - Tools, libraries, blogs, or any documentation that you have used to do this project.
+- 전체적인 방향성은 다음의 블로그를 참조했습니다.
+https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic/report
   
 ## VI. Conclusion: Discussion
-- Feel free to use any format you like. 
+- Abstract
+- Challenging point
+- etc
   
 
