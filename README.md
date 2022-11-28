@@ -160,8 +160,7 @@ str(data)
 |d1_heartrate_max/min| 최고/최저 심박수(24h) |
 |...| ...  |
 |h1_heartrate_max/min| 최고/최저 심박수(1h) |
-|...| ...  |
-|(하리님 파트)| (위아래 예시 처럼 작성해주세요) |       
+|...| ...  |       
 |aids/cirrhosis/...| 에이즈/경화증/... 관련 병력(1), 이상없음(0) |        
 | soliol_tumor_with_metastasis | 전이 종양 진단(1) 해당없음 (0) |
 |...| ... |
