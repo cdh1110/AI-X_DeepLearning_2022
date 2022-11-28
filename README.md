@@ -1,7 +1,7 @@
 # AI-X_DeepLearning_2022Fall_FinalProject
 ## Title
 **Exploring Survival in the Hospital**(입원 중인 환자의 생존률)
-
+<br>블로그 링크: https://github.com/cdh1110/AI-X_DeepLearning_2022
 ## Members
 <br> 차도현, 물리학과, chamena1110@gmail.com <br> Khaliun, 경제금융학부, haliunurgamaltuya@gmail.com 
 
