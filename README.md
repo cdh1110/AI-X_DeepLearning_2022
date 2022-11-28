@@ -152,7 +152,9 @@ str(data)
 |height| 키  |
 |weight| 체중 | 
 |icu_~| 집중치료실(ICU) 관련 데이터  |
-|apache_~| 의학적 점수인 APACHE2,3와 관련 데이터 |           
+|apache_2_...| 의학적 점수인 APACHE II와 관련된 데이터 |  
+|apache_3_...| 의학적 점수인 APACHE III와 관련된 데이터 | 
+|apache_4_...| 의학적 점수인 APACHE IV와 관련된 데이터 |  
 |apache_post_operative| 수술 받음(1), 받지 않음(0) |
 |gcs_~| 글래스고 혼수척도 관련 데이터 |          
 |d1_heartrate_max/min| 최고/최저 심박수(24h) |
@@ -161,9 +163,9 @@ str(data)
 |...| ...  |
 |(하리님 파트)| (위아래 예시 처럼 작성해주세요) |       
 |aids/cirrhosis/...| 에이즈/경화증/... 관련 병력(1), 이상없음(0) |        
+| soliol_tumor_with_metastasis | 전이 종양 진단(1) 해당없음 (0) |
 |???| ??? |
-|???| ??? |
-|hospital_death| 사망(1), 생존(0)  |   
+|**hospital_death**| **사망(1), 생존(0)**  |   
 
 ### II-2. Check Missing Values        
 데이터의 결측치를 확인합니다.
