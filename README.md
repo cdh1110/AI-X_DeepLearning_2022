@@ -353,7 +353,18 @@ print(id_list)
 ```Python
 ['encounter_id', 'patient_id', 'hospital_id', 'icu_id']
 ```
-
+다음으로 해당 열들의 유니크한 값의 개수를 확인합니다.
+```Python
+for _id in id_list:
+    nun = data[_id].nunique()                    #nunique로 id 열들의 유니크 값 개수 확인
+    print(_id, '의 유니크 값 개수: ',nun)          #출력
+```
+```
+encounter_id 의 유니크 값 개수:  91713
+patient_id 의 유니크 값 개수:  91713
+hospital_id 의 유니크 값 개수:  147
+icu_id 의 유니크 값 개수:  241
+```
 
 ### III - 2. 
 
