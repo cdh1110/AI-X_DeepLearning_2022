@@ -365,6 +365,42 @@ patient_id 의 유니크 값 개수:  91713
 hospital_id 의 유니크 값 개수:  147
 icu_id 의 유니크 값 개수:  241
 ```
+'encounter_id'나 'patient_id'는 고유값의 개수가 행의 개수(91713)과 동일합니다. 환자 별로 할당된 고유식별자임을 쉽게 알 수 있지만,
+<br>'hospital_id', 'icu_id'는 그렇지 않습니다. 혹시 모르니 <code>value_counts</code>를 사용해 고유값 별로 몇개의 데이터가 있는지 확인합니다.
+```Python
+data['hospital_id'].value_counts()          #hospital_id 고유값 분포 확인
+```
+```
+118    4333
+19     3925
+188    3095
+161    2792
+70     2754
+       ... 
+23        7
+4         7
+93        6
+95        6
+130       2
+Name: hospital_id, Length: 147, dtype: int64
+```
+```Python
+data['icu_id'].value_counts()          #icu_id 고유값 분포 확인
+```
+```
+646    1325
+653    1307
+876    1284
+413    1239
+236    1140
+       ... 
+494       3
+365       2
+302       2
+603       2
+241       1
+Name: icu_id, Length: 241, dtype: int64
+```
 
 ### III - 2. 
 
