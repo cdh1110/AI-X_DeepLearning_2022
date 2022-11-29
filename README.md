@@ -401,6 +401,10 @@ data['icu_id'].value_counts()          #icu_id 고유값 분포 확인
 241       1
 Name: icu_id, Length: 241, dtype: int64
 ```
+위 분포와 해당 id의 description을 미루어 볼때, 두 id 모두 병원, 입원실과 관련된 고유 id임을 확인할 수 있습니다.
+<br> 따라서 <code>id_list</code>에 해당되는 네 id feature는 학습 모델에 포함시키기 적절하지 않으므로 데이터셋에서 제외합니다.
+
+
 
 ### III - 2. 
 
