@@ -344,10 +344,10 @@ unlist(rows_with_na) #출력
 ### III - 1. Deleting 'ID's
 데이터에 포함된 feature 중 큰 의미가 없는 '고유식별자(ID)' 열들을 제거합니다.
 ```Python
-id_list=[] #id feature 리스트 생성
-for name in data.columns: #열 이름 마다 확인
-    if '_id' in name: #'_id'의 포함되어있는지
-        id_list.append(name) #해당 열 이름 추출
+id_list=[] 
+for name in data.columns:
+    if '_id' in name:               #열 이름에 '_id'가 포함되어있다면
+        id_list.append(name)        #해당 열 이름 추출
 print(id_list)        
 ```
 ```Python
