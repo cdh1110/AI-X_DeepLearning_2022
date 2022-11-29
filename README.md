@@ -31,7 +31,7 @@ https://www.kaggle.com/datasets/mitishaagarwal/patient
 ICU(중환자실) 입원 환자의 여러 특징과 해당 환자 사망 여부를 나타낸 데이터입니다. 환자가 생존 했을 경우 0, 사망 했을 경우 1입니다. 
 *타이타닉 예제와 같은 binary classification입니다. 약 80개나 되는 다양한 feature가 존재하고 중간중간 결측치(Null, NaN) 또한 가지고 있어 EDA에 대부분의 시간이 할애될 것입니다. 따라서 이 두 가지 특징 때문에, 본 프로젝트는 타이타닉 예제와 매우 유사한 방식으로 진행될 것이 예상됩니다. Feature engineering, Missing value imputation, Prediction을 중점으로 다루겠습니다.*
 <br>
-<br>사용한 언어는 R이며, 일부 python의 기능 또한 활용했습니다.
+<br>사용할 언어는 R과 python입니다. 후에 시간을 추가로 활용하여 전과정을 python 통합하겠습니다.
 <br>
 ### II-1. Overview
 
@@ -338,6 +338,24 @@ unlist(rows_with_na) #출력
 
   
 ## III. Methodology 
+
+- Explaining features
+
+### III - 1. Deleting 'ID's
+데이터에 포함된 feature 중 큰 의미가 없는 '고유식별자(ID)' 열들을 제거합니다.
+```Python
+id_list=[] #id feature 리스트 생성
+for name in data.columns: #열 이름 마다 확인
+    if '_id' in name: #'_id'의 포함되어있는지
+        id_list.append(name) #해당 열 이름 추출
+print(id_list)        
+```
+```Python
+['encounter_id', 'patient_id', 'hospital_id', 'icu_id']
+```
+
+
+### III - 2. 
 
 - Explaining features
 
