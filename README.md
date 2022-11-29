@@ -404,7 +404,26 @@ Name: icu_id, Length: 241, dtype: int64
 위 분포와 해당 id의 description을 미루어 볼때, 두 id 모두 병원, 입원실과 관련된 고유 id임을 확인할 수 있습니다.
 <br> 따라서 <code>id_list</code>에 해당되는 네 id feature는 학습 모델에 포함시키기 적절하지 않으므로 데이터셋에서 제외합니다.
 
+```Python
+data.drop(labels=id_list, axis=1, inplace=True)
+print(data)
+```
+```
+        age        bmi  ...  apache_2_bodysystem hospital_death
+0      68.0  22.730000  ...       Cardiovascular              0
+1      77.0  27.420000  ...          Respiratory              0
+2      25.0  31.950000  ...            Metabolic              0
+3      81.0  22.640000  ...       Cardiovascular              0
+4      19.0        NaN  ...               Trauma              0
+...     ...        ...  ...                  ...            ...
+91708  75.0  23.060250  ...       Cardiovascular              0
+91709  56.0  47.179671  ...       Cardiovascular              0
+91710  48.0  27.236914  ...            Metabolic              0
+91711   NaN  23.297481  ...          Respiratory              0
+91712  82.0  22.031250  ...     Gastrointestinal              0
 
+[91713 rows x 80 columns]
+```
 
 ### III - 2. 
 
