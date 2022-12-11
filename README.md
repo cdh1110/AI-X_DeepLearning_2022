@@ -499,8 +499,26 @@ sum(complete.cases(data))    #결측치가 없는 행의 개수
 >>> 60909
 ```
 초기에는 결측치가 없는 행의 개수가 56935개 였으니, 위의 필터링 과정을 통해 모델에 쓰일 '완전한' 행의 개수를 조금 늘리게 된 성과를 얻었다 할 수 있겠습니다.
-
-
+<br>------------------------------------------------------------------------------------  
+이제 for 루프를 사용해서 데이터 마다 그래프를 그려보겠습니다.
+```Python
+for i in data.columns:
+    if data[i].value_counts().shape[0]>20:
+        plt.figure(figsize=(12,8))
+        sns.distplot(data[i][data['hospital_death']==0],color='g', label='Survive ',hist_kws={'edgecolor':'black'})
+        _=sns.distplot(data[i][data['hospital_death']==1],color='r',label='Death',hist_kws={'edgecolor':'black'})
+        plt.legend()
+        plt.title(f'{dict_description[i]}', fontsize=8)
+        plt.savefig(str(i)+'.pdf')
+    else:
+        plt.figure(figsize=(14, 6))
+        sns.countplot(x=i, hue="hospital_death", data=data, palette='coolwarm')
+        plt.legend(loc='upper right')
+        plt.yscale('log')
+        plt.xticks(rotation=45)
+        plt.title(f'{dict_description[i]}', fontsize=8)
+        plt.savefig(str(i)+'.pdf')
+```
 - Explaining features
 
 <details><summary>내용펼치기</summary>
