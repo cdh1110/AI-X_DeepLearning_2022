@@ -425,7 +425,26 @@ print(data)
 [91713 rows x 80 columns]
 ```
 
-추가로 인종 'ethnicity' 열도 제거합니다. 과학적으로 유의미한 feature가 될 가능성이 없진 않지만, 굳이 남겨둘 이유는 없습니다.
+추가로 인종 'ethnicity' 열도 제거합니다. 과학적으로 유의미한 feature가 될 가능성이 없진 않지만, 아래의 그래프와 같이 인종은 사망률에 큰 영향을 주지 않으므로 굳이 남겨둘 이유는 없습니다.
+```Python
+data['ethnicity'].nunique()    #인종 종류 수 확인
+>>> 6
+eth_group = rawdata.groupby(['hospital_death','ethnicity'])    #인종과 사망여부 그룹화
+eth = dict(rawdata['ethnicity'].value_counts())
+sorted_eth = sorted(eth.items())
+death = dict(eth_groups.size()[6:])
+sorted_death = sorted(death.items())    #인종과 사망여부 순서 정렬
+x_eth = []
+y_death_ratio =[]
+for i in range(6):
+    y_death_ratio.append(sorted_death[i][1]/sorted_eth[i][1])    #사망률
+    x_eth.append(sorted_eth[i][0])    #인종
+plt.figure(figsize=(15,5))    #그래프 그리기
+plt.ylim([0,1])
+plt.plot(x_eth,y_death_ratio,'-x')
+plt.title('Death Ratio by ethnicity', fontsize=15)
+plt.savefig('eth.png')
+```
 ```Python
 data.drop('ethnicity', axis=1, inplace=True)
 ```
