@@ -484,7 +484,20 @@ plt.savefig('noninv.png')
 ```
 ![noninv](./img/noninv.png)
 
-위 히트맵의 상관계수 '1'의 위치를 따져봤을 때, "XX_noninvasive_YY"는 변수 "XX_YY"와 완전히 같은 데이터임을 확인할 수 있습니다.
+위 히트맵의 상관계수 '1.0'의 위치를 따져봤을 때, "XX_noninvasive_YY"는 변수 "XX_YY"와 완전히 같은 데이터임을 확인할 수 있습니다.
+<br> 차이는 noninvasive 쪽에 추가 결측치가 있다는 것인데, 예시로 'd1_diasbp_max'와 'd1_diasbp_noninvasive_max'의 결측치를 시각화하면
+
+![ex](./img/ex.png)
+
+결론은, 'XX_noninvasive' 종류의 데이터는, 결측치만 추가로 존재할 뿐, 'XX'와 100% 일치하는 데이터라는 것입니다.
+<br> 즉, 해당 종류의 데이터는 전부 삭제해도 무방할듯 합니다.
+
+```Python
+data.drop(labels=non_invasive_list, axis=1, inplace=True)
+```
+현재까지 정리한 데이터 셋의 결측치 현황을 점검해봅니다.
+
+
 
 - Explaining features
 
