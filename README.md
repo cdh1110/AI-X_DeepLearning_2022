@@ -463,6 +463,29 @@ sns.heatmap(data.corr(),cmap='RdBu')
 ```
 ![htmap](./img/htmap.png)
 
+가장 눈에 띄는 점은 가운데 보이는 파란색 구역들입니다.
+<br> 이들의 공통점은 이름의 '_noninvasive_'라는 단어가 들어간 변수라는 것입니다.
+<br> 따라서 이들의 상관관계를 좀 더 자세히 확인합니다.
+```Python
+for name in data.columns:    #'_noninvasive'가 포함된 변수 찾기
+    if '_noninvasive' in name:
+        non_invasive_list.append(name)
+print(non_invasive_list)
+```
+```
+['d1_diasbp_noninvasive_max', 'd1_diasbp_noninvasive_min', 'd1_mbp_noninvasive_max', 'd1_mbp_noninvasive_min', 'd1_sysbp_noninvasive_max', 'd1_sysbp_noninvasive_min', 'h1_diasbp_noninvasive_max', 'h1_diasbp_noninvasive_min', 'h1_mbp_noninvasive_max', 'h1_mbp_noninvasive_min', 'h1_sysbp_noninvasive_max', 'h1_sysbp_noninvasive_min']
+```
+이제 상관관계를 파악하기 위한 리스트를 따로 만들어 준 뒤, 상관관계 계수가 포함된 히트맵을 출력합니다.
+```Python
+df_noninv=data[['d1_diasbp_max','d1_diasbp_min','d1_mbp_max', 'd1_mbp_min', 'd1_sysbp_max', 'd1_sysbp_min', 'h1_diasbp_max', 'h1_diasbp_min', 'h1_mbp_max', 'h1_mbp_min', 'h1_sysbp_max', 'h1_sysbp_min','d1_diasbp_noninvasive_max', 'd1_diasbp_noninvasive_min', 'd1_mbp_noninvasive_max', 'd1_mbp_noninvasive_min', 'd1_sysbp_noninvasive_max', 'd1_sysbp_noninvasive_min', 'h1_diasbp_noninvasive_max', 'h1_diasbp_noninvasive_min', 'h1_mbp_noninvasive_max', 'h1_mbp_noninvasive_min', 'h1_sysbp_noninvasive_max', 'h1_sysbp_noninvasive_min']]
+plt.figure(figsize=(20,20))
+sns.heatmap(df_noninv.corr(),annot=True, fmt=".1f", cmap='Blues')
+plt.savefig('noninv.png')
+```
+![noninv](./img/noninv.png)
+
+위 히트맵의 상관계수 '1'의 위치를 따져봤을 때, "XX_noninvasive_YY"는 변수 "XX_YY"와 완전히 같은 데이터임을 확인할 수 있습니다.
+
 - Explaining features
 
 <details><summary>내용펼치기</summary>
