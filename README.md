@@ -425,7 +425,21 @@ print(data)
 [91713 rows x 80 columns]
 ```
 
-### III - 2. 
+추가로 인종 'ethnicity' 열도 제거합니다. 과학적으로 유의미한 feature가 될 가능성이 없진 않지만, 굳이 남겨둘 이유는 없습니다.
+```Python
+data.drop('ethnicity', axis=1, inplace=True)
+```
+
+
+### III - 2.  EDA
+
+각 변수 간 상관관계를 살펴보기 위해 히트맵을 그립니다.
+```Python
+plt.figure(figsize=(20,20))
+plt.title("Correlation Heatmap", y = 1.05, size = 15)
+sns.heatmap(data.corr(),cmap='RdBu')
+```
+
 
 - Explaining features
 
