@@ -40,8 +40,6 @@ ICU(중환자실) 입원 환자의 여러 특징과 해당 환자 사망 여부�
 library('dplyr') #data manipulation
 library('tidyr') #data manipulation
 library('naniar') #NA manipulation
-library('VIM') #visualization
-library('ggplot2') #visualization
 ```
 이제 데이터를 로드합니다.
 ```R
@@ -496,7 +494,11 @@ plt.savefig('noninv.png')
 data.drop(labels=non_invasive_list, axis=1, inplace=True)
 ```
 현재까지 정리한 데이터 셋의 결측치 현황을 점검해봅니다.
-
+```R
+sum(complete.cases(data))    #결측치가 없는 행의 개수
+>>> 60909
+```
+초기에는 결측치가 없는 행의 개수가 56935개 였으니, 위의 필터링 과정을 통해 모델에 쓰일 '완전한' 행의 개수를 조금 늘리게 된 성과를 얻었다 할 수 있겠습니다.
 
 
 - Explaining features
