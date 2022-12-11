@@ -439,7 +439,7 @@ plt.figure(figsize=(20,20))
 plt.title("Correlation Heatmap", y = 1.05, size = 15)
 sns.heatmap(data.corr(),cmap='RdBu')
 ```
-
+![htmap](./img/htmap.png)
 
 - Explaining features
 
