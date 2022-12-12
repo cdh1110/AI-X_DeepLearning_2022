@@ -518,6 +518,52 @@ for i in data.columns:
 
 나머지 데이터에 대한 플롯은 ![plt_merged.pdf](./plt_merged.pdf)에 담겨있습니다.
 
+III - 3.  Making final dataframe
+
+모델에 사용할 데이터프레임을 만들기 위해 마지막으로 몇 가지 작업을 합니다.
+```Python
+#제거할 feature들 목록 생성
+drop_list = ['icu_type', 'pre_icu_los_days', 'weight', 'height', 'gcs_unable_apache', 'd1_spo2_max', 'h1_spo2_max', 'apache_4a_icu_death_prob', 'apache_2_bodysystem', 'apache_3j_bodysystem']
+data.drop(labels=drop_list, axis=1, inplace=True)    #해당 feature들 제거
+```
+위 feature들은 위에서 그렸던 플롯과 변수 특성을 고려하여 삭제를 결정했습니다.
+<br>사실상 고유 식별자(ID)의 역할을 하는 변수거나, 키, 체중과 같이 BMI 변수에 이미 포함되어 있는 중복 변수거나, 의미를 이해할 수 없는(ex. 음수가 존재할 수 없는데 존재한다던가) 변수들입니다.
+<br>모델의 정확성 향상에 기여하는 dimensionality reduction을 위해 제거하였습니다.
+<br>  
+<br>이제 결측값을 포함하는 행을 제거합니다.
+```Python
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 60909 entries, 0 to 60908
+Data columns (total 57 columns):
+ #   Column                         Non-Null Count  Dtype  
+---  ------                         --------------  -----  
+ 0   age                            60909 non-null  float64
+ 1   bmi                            60909 non-null  float64
+ 2   elective_surgery               60909 non-null  int64  
+ 3   gender                         60909 non-null  object 
+ 4   icu_admit_source               60909 non-null  object 
+ 5   icu_stay_type                  60909 non-null  object 
+ 6   apache_2_diagnosis             60909 non-null  float64
+ 7   apache_3j_diagnosis            60909 non-null  float64
+...
+ 51  hepatic_failure                60909 non-null  float64
+ 52  immunosuppression              60909 non-null  float64
+ 53  leukemia                       60909 non-null  float64
+ 54  lymphoma                       60909 non-null  float64
+ 55  solid_tumor_with_metastasis    60909 non-null  float64
+ 56  hospital_death                 60909 non-null  int64  
+dtypes: float64(51), int64(3), object(3)
+memory usage: 26.5+ MB
+```
+최종적으로 57개 feature와 60909개의 결측치 없는 행이 남았음을 확인할 수 있습니다.
+
+```Python
+df.hospital_death.value_counts().plot(kind='pie',autopct="%.2f",title ='Mortality in hospital(%)')
+plt.savefig('mortality.png')
+```
+모델의 사용할 최종 데이터에서 hospital_death가 1인 비율이 어느 정도인지 파악합니다.
+![mortality]('./img/mortality.png')
+원본 데이터의 비율과 크게 다르지 않음을 확인할 수 있습니다.
 
 - Explaining features
 
