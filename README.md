@@ -3,7 +3,7 @@
 **Exploring Survival in the Hospital**(입원 중인 환자의 생존률)
 <br>블로그 링크: https://github.com/cdh1110/AI-X_DeepLearning_2022
 ## Members
-<br> 차도현, 물리학과, chamena1110@gmail.com <br> Khaliun, 경제금융학부, haliunurgamaltuya@gmail.com 
+<br> 차도현, 물리학과, chamena1110@gmail.com (데이터셋 탐색, feature 분석, 데이터셋 가공, 코드 작성 및 실행, 블로그 작성, 유튜브 촬영) <br> Khaliun, 경제금융학부, haliunurgamaltuya@gmail.com (feature 분석 도움)
 
 ## Index
 ####    I. Proposal
@@ -707,9 +707,9 @@ print(f'#정밀도 : {p:.2f}'+f'  #재현률 : {r:.2f}'+f'  #f1스코어 : {f1:.
 - 다른 feature와 거의 일치하거나, 이미 포함되어 있는 중복된 feature임
 - 음수가 포함될 수 없는 데이터인데 음수가 포함됨
 - 의미를 이해할 수 없거나, 정상적인 데이터가 아니라고 판단됨
-이 과정을 통해 최종적으로 28개의 열을 삭제하여 **56개의 feature로 축소** 시켰으며, 결과적으로 결측치가 존재하는 행도 34778개에서 30804개가 되어 **총 3974개의 행을 살렸습니다.**
+<br> 이 과정을 통해 최종적으로 28개의 열을 삭제하여 **56개의 feature로 축소** 시켰으며, 결과적으로 결측치가 존재하는 행도 34778개에서 30804개가 되어 **총 3974개의 행을 살렸습니다.**
 <br>그 후, 데이터셋을 7:3의 비율로 학습, 시험 세트를 나눈 뒤, Decision Tree 알고리즘으로 학습시킨 결과, 시험 세트에 대해
 <br> **모델 정확도 88.56%** 를 얻었다. 또한, **precision 점수** 는 **33%** , **recall 점수** 는 **35%** , 그리고  **f1 점수** 는 **34%** 를 얻었습니다.
-#### Challenging point
-  
 
+#### Discussion
+<br>Python과 R을 ML에 적용하는 방법을 알게 되었다. Decision Tree 알고리즘의 특성과 원리를 이해할 수 있었다. 이번 프로젝트에는 트리 기반 모델만을 사용했지만, 다음 기회에는 one hot encoding 기법을 사용해 선형 모델(로지스틱, SVM, 신경망) 알고리즘에도 본 데이터셋을 적용하여 더욱 의미있는 프로젝트가 되었음 한다.
