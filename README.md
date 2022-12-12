@@ -327,7 +327,6 @@ unlist(rows_with_na) #출력
   
 ## III. Methodology 
 
-- Explaining features
 
 ### III - 1. Deleting 'ID's
 데이터에 포함된 feature 중 큰 의미가 없는 '고유식별자(ID)' 열들을 제거합니다.
@@ -565,7 +564,6 @@ plt.savefig('mortality.png')
 ![mortality](./img/mortality.png)
 <br>원본 데이터의 비율과 크게 다르지 않음을 확인할 수 있습니다.
 
-- Explaining algorithms
 
 ### III - 4.  Explaining algorithms
 
@@ -584,18 +582,43 @@ plt.savefig('mortality.png')
 두 알고리즘 모두 트리 계열 모델입니다. 이 모델들의 장점은 일반적으로 feature들을 정규화하거나 스케일링하는 작업이 필요없다는 것 입니다.
 <br>또한, 수치형과 범주형 데이터를 모두 사용할 수 있어, One Hot Encoding과 같은 별도의 범주형 데이터 처리가 불필요하는 것도 장점이겠습니다.
 
-## IV. Evaluation & Analysis
-- Graphs, tables, any statistics
-  
-## V. Related Work (e.g., existing studies)
+## IV. Models & Evaluation
+
+먼저, 모델에 적용하기 전 레이블 인코딩(Label encoding) 과정을 거쳐야합니다.
+<br>사이킷런은 범주형 데이터의 문자열 값(dType = object)을 입력 받지 못하기 때문에, 이를 모두 숫자로 바꿔줘야 합니다. 
+<br>레이블 인코딩(Label encoding)은 문자열인 유니크한 값들을 단순히 순서대로 정렬한 뒤, 각각에 0 부터 1씩 증가하는 값을 부여해 숫자 데이터로 변환하는 과정입니다.
+<br>*다만, 이러한 숫자 부여 방식은 트리 모델류에서만 유용하며, 숫자 크기 자체가 영향을 주는 선형 모델(로지스틱 회귀, 신경망 등)에는 사용할 수 없습니다. (이 경우, one hot encoding이란 방식을 사용해야합니다.)*
+```Python
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 60909 entries, 0 to 60908
+Data columns (total 57 columns):
+ #   Column                         Non-Null Count  Dtype  
+---  ------                         --------------  -----  
+ 0   age                            60909 non-null  float64
+ 1   bmi                            60909 non-null  float64
+ 2   elective_surgery               60909 non-null  int64  
+ 3   gender                         60909 non-null  object 
+ 4   icu_admit_source               60909 non-null  object 
+ 5   icu_stay_type                  60909 non-null  object 
+ 6   apache_2_diagnosis             60909 non-null  float64
+ ...
+ dtypes: float64(51), int64(3), object(3)
+memory usage: 26.5+ MB
+```
+df.info()로 살펴본 바로는, 현재 범주형 데이터 중 문자열(object)을 가지는 feature는 3 가지 존재합니다.
+<br> 'gender', 'icu_admit_source', 'icu_stay_type' 이 세 가지입니다.
+## V. Related Work 
 - Tools, libraries, blogs, or any documentation that you have used to do this project.
-- 전체적인 방향성은 다음의 블로그를 참조했습니다.
-https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic/report
-https://regenerativetoday.com/simple-explanation-on-how-decision-tree-algorithm-makes-decisions/ (Decision Tree 참고)
-https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/ (Random Forest 참고)
-## VI. Conclusion: Discussion
+- https://www.kaggle.com/datasets/mitishaagarwal/patient (Dataset)
+- https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic/report (전체적인 방향성 참고)
+- https://www.kaggle.com/code/danielwarda/patient-survival-prediction-eda-part-1 (데이터 plot 코드 참고)
+- https://ysyblog.tistory.com/71 (Label Encoding)
+- https://ysyblog.tistory.com/68 (Decision Tree 코딩)
+- https://regenerativetoday.com/simple-explanation-on-how-decision-tree-algorithm-makes-decisions/ (Decision Tree 설명)
+- https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/ (Random Forest 설명)
+
+## VI. Conclusion & Discussion
 - Abstract
 - Challenging point
-- etc
   
 
