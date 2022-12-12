@@ -37,10 +37,18 @@ ICU(중환자실) 입원 환자의 여러 특징과 해당 환자 사망 여부�
 
 먼저 데이터 분석에 필요한 패키지들을 불러옵니다.
 ```R
-library('dplyr') #data manipulation
-library('tidyr') #data manipulation
-library('naniar') #NA manipulation
+library('dplyr')    #data manipulation
+library('tidyr')    #data manipulation
+library('naniar')    #NA manipulation
 ```
+```Python
+import numpy as np   #data manipulation
+import pandas as pd   #data manipulation
+import matplotlib.pyplot as plt    #plot manipulation
+import seaborn as sns    #visualiztion
+import os
+```
+
 이제 데이터를 로드합니다.
 ```R
 data <- read.csv('./project_data.csv', stringsAsFactors = F, na.strings = c("", " ","  ", NA))
@@ -693,6 +701,8 @@ print(f'#정밀도 : {p:.2f}'+f'  #재현률 : {r:.2f}'+f'  #f1스코어 : {f1:.
 
 ## VI. Conclusion & Discussion
 - Abstract
+'입원 중 환자의 생존률' 데이터셋을 7:3의 비율로 학습, 시험 세트를 나눈 뒤, Decision Tree 알고리즘으로 학습시킨 결과, 시험 세트에 대해
+<br>**예측 점수 88.56%**를 얻었다. 또한, **precision 점수**는 **33%**, **recall 점수**는 **35%**, 그리고  **f1 점수**는 **34%**를 얻었다.
 - Challenging point
   
 
