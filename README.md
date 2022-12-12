@@ -589,6 +589,7 @@ plt.savefig('mortality.png')
 
 ## IV. Models & Evaluation
 
+#### 레이블 인코딩(Label encoding)
 먼저, 모델에 적용하기 전 레이블 인코딩(Label encoding) 과정을 거쳐야합니다.
 <br>사이킷런은 범주형 데이터의 문자열 값(dType = object)을 입력 받지 못하기 때문에, 이를 모두 숫자로 바꿔줘야 합니다. 
 <br>레이블 인코딩(Label encoding)은 문자열인 유니크한 값들을 단순히 순서대로 정렬한 뒤, 각각에 0 부터 1씩 증가하는 값을 부여해 숫자 데이터로 변환하는 과정입니다.
@@ -612,6 +613,36 @@ memory usage: 26.5+ MB
 ```
 df.info()로 살펴본 바로는, 현재 범주형 데이터 중 문자열(object)을 가지는 feature는 3 가지 존재합니다.
 <br> 'gender', 'icu_admit_source', 'icu_stay_type' 이 세 가지입니다.
+```Python
+from sklearn.preprocessing import LabelEncoder     #모듈 import
+# 'gender' 인코딩
+LE = LabelEncoder()
+LE.fit(df['gender'])
+labels = LE.transform(df['gender'])
+print(labels)
+>>>[1 0 0 ... 1 0 0]
+# 'icu_admit_source' 인코딩
+LE.fit(df['icu_admit_source'])
+labels2 = LE.transform(df['icu_admit_source'])
+print(labels2)
+>>>[1 1 2 ... 1 1 2]
+# 'icu_stay_type' 인코딩
+LE.fit(df['icu_stay_type'])
+labels3 = LE.transform(df['icu_stay_type'])
+print(labels3)
+>>>[0 0 0 ... 0 0 0]
+#기존값 대체
+df['gender'] = labels
+df['icu_admit_source'] = labels2
+df['icu_stay_type'] = labels3
+```
+
+
+
+
+
+
+
 ## V. Related Work 
 - Tools, libraries, blogs, or any documentation that you have used to do this project.
 - https://www.kaggle.com/datasets/mitishaagarwal/patient (Dataset)
