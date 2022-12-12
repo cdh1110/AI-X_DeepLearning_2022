@@ -514,9 +514,9 @@ for i in data.columns:
 ![age](./img/age.png)
 
 'gender'(성별)과 같은 카테고리형(또는 불리언형) 데이터는 아래와 같은 count plot을 그렸습니다.
-![gender](./img/gender.png)
+![gender](./img/gender.PNG)
 
-나머지 데이터에 대한 플롯은 ![pdf](./plt_merged.pdf) plt_merged.pdf에 담겨있습니다.
+나머지 데이터에 대한 플롯은 ![plt_merged.pdf](./plt_merged.pdf)에 담겨있습니다.
 
 
 - Explaining features
