@@ -636,11 +636,34 @@ df['gender'] = labels
 df['icu_admit_source'] = labels2
 df['icu_stay_type'] = labels3
 ```
-
-
-
-
-
+#### 의사결정나무(Decision Tree)
+먼저, 데이터를 train, test 그룹으로, 7대3 비율로 나눕니다.
+```Python
+from sklearn.model_selection import train_test_split
+y = df.hospital_death    #타겟=Hospital Death
+x = df.drop('hospital_death',axis=1)     #타겟 제외 피쳐들
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, stratify=y , random_state=1)    #7:3비율로 트레이닝, 테스팅 세트 분할
+x_train.shape, x_test.shape, y_train.shape, y_test.shape    #확인
+>>>((42636, 56), (18273, 56), (42636,), (18273,))
+```
+이제 모델에 데이터를 학습시킨 뒤, 예측합니다!
+```Python
+from sklearn.tree import DecisionTreeClassifier
+tree = DecisionTreeClassifier()
+tree.fit(x_train, y_train)    #트레이닝 세트 학습 시키기
+```
+```Python
+from sklearn.metrics import accuracy_score
+predict_train = tree.predict(x_train)     #트레이닝 세트 예측
+predict_test = tree.predict(x_test)    #테스트 세트 예측
+accuracy_train = accuracy_score(y_train, predict_train)
+accuracy_test = accuracy_score(y_test, predict_test)
+accuracy_train    #예측 모델의 트레이닝 세트 예측 점수(즉, 1이어야 정상)
+>>>1.0
+accuracy_test    #예측 모델의 테스트 세트 예측 점수
+>>>0.8856235976577465
+```
+즉, **의사결정나무** 알고리즘으로 학습했을 때, 예측 점수 **88.56%의 정확도**를 보였습니다. 
 
 
 ## V. Related Work 
