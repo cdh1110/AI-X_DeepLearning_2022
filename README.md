@@ -531,6 +531,11 @@ data.drop(labels=drop_list, axis=1, inplace=True)    #해당 feature들 제거
 <br>  
 <br>이제 결측값을 포함하는 행을 제거합니다.
 ```Python
+df = data.dropna(axis=0)    #결측치가 존재하는 행 제거
+df.reset_index(drop=True, inplace=True)    #인덱스 초기화
+df.info()
+```
+```Python
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 60909 entries, 0 to 60908
 Data columns (total 57 columns):
