@@ -518,7 +518,7 @@ for i in data.columns:
 
 나머지 데이터에 대한 플롯은 ![plt_merged.pdf](./plt_merged.pdf)에 담겨있습니다.
 
-III - 3.  Making final dataframe
+### III - 3.  Making final dataframe
 
 모델에 사용할 데이터프레임을 만들기 위해 마지막으로 몇 가지 작업을 합니다.
 ```Python
@@ -565,18 +565,24 @@ plt.savefig('mortality.png')
 ![mortality](./img/mortality.png)
 <br>원본 데이터의 비율과 크게 다르지 않음을 확인할 수 있습니다.
 
-- Explaining features
-
-<details><summary>내용펼치기</summary>
-<p>
- 
- 각종 삽화들(너무 길어지면 여기다 놓기)
- 
-</p>
-</details>
-
 - Explaining algorithms
 
+### III - 4.  Explaining algorithms
+
+본 프로젝트에선 2개의 알고리즘을 선택했습니다.
+
+- 의사결정나무(Decision Tree)
+- 랜덤포레스트(Random Forest)
+
+#### 의사결정나무(Decision Tree)
+![dt](./img/dt.png)
+데이터에 존재하는 임의의 규칙과 기준을, 학습을 통해 그림과 같은 Tree 형태의 분류 규칙을 만들어내는 모델을 의사결정나무라고 합니다.
+#### 랜덤포레스트(Random Forest)
+![rf](./img/rf.png)
+여러 개수의 decision tree를 형성하고 각각의 tree에 데이터를 동시에 통과시켜, 이 중에서 최적의 분류 결과를 찾는 모델을 랜덤포레스트하고 합니다. 하나의 데이터셋이 아닌 여러 서브 데이터 셋을 만든 뒤 각각의 tree 분류의 결과를 종합하는 앙상블 기법을 활용하기 때문에, 의사결정나무 모델의 과적합 단점을 어느 정도 극복한 모델입니다.
+
+두 알고리즘 모두 트리 계열 모델입니다. 이 모델들의 장점은 일반적으로 feature들을 정규화하거나 스케일링하는 작업이 필요없다는 것 입니다.
+<br>또한, 수치형과 범주형 데이터를 모두 사용할 수 있어, One Hot Encoding과 같은 별도의 범주형 데이터 처리가 불필요하는 것도 장점이겠습니다.
 
 ## IV. Evaluation & Analysis
 - Graphs, tables, any statistics
@@ -585,7 +591,8 @@ plt.savefig('mortality.png')
 - Tools, libraries, blogs, or any documentation that you have used to do this project.
 - 전체적인 방향성은 다음의 블로그를 참조했습니다.
 https://www.kaggle.com/code/mrisdal/exploring-survival-on-the-titanic/report
-  
+https://regenerativetoday.com/simple-explanation-on-how-decision-tree-algorithm-makes-decisions/ (Decision Tree 참고)
+https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/ (Random Forest 참고)
 ## VI. Conclusion: Discussion
 - Abstract
 - Challenging point
