@@ -519,6 +519,10 @@ for i in data.columns:
         plt.title(f'{dict_description[i]}', fontsize=8)
         plt.savefig(str(i)+'.pdf')
 ```
+예를 들어 정수형 데이터인 'age'(나이)는 아래와 같은 밀도 plot을 그렸습니다.
+<br>녹색선은 생존한 사람의 나이별 분포, 적색선은 사망한 사람의 나이별 분포입니다. 상대적으로 고령에서 적색선이 우세한 것을 대략적으로 확인할 수 있습니다.
+![age](./img/age.png)
+
 - Explaining features
 
 <details><summary>내용펼치기</summary>
