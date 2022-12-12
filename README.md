@@ -657,6 +657,7 @@ accuracy_test    #예측 모델의 테스트 세트 예측 점수
 >>>0.8856235976577465
 ```
 즉, **의사결정나무** 알고리즘으로 학습했을 때, 예측 점수 **88.56%의 정확도**를 보였습니다. 
+<br>  
 <br> 마지막으로 Confusion Matrix를 구한 뒤, 정밀도(Precision)와 재현률(Recall), F1점수를 계산하겠습니다.
 ```Python
 #Confusion Matrix 시각화
@@ -669,6 +670,7 @@ plt.xlabel('Prediction', fontsize=15)
 plt.title('Confusion Matrix(Decision Tree)', fontsize=18)    #축 레이블과 제목 추가
 plt.savefig('dtcm.png')
 ```
+![dtcm](./img/dtcm.png)
 ```Python
 #Precision, Recall, F1 score 계산
 from sklearn.metrics import precision_score, recall_score, f1_score
