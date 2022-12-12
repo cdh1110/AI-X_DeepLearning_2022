@@ -563,7 +563,7 @@ plt.savefig('mortality.png')
 ```
 모델의 사용할 최종 데이터에서 hospital_death가 1인 비율이 어느 정도인지 파악합니다.
 ![mortality](./img/mortality.png)
-원본 데이터의 비율과 크게 다르지 않음을 확인할 수 있습니다.
+<br>원본 데이터의 비율과 크게 다르지 않음을 확인할 수 있습니다.
 
 - Explaining features
 
