@@ -572,19 +572,12 @@ plt.savefig('mortality.png')
 
 ### III - 4.  Explaining algorithms
 
-본 프로젝트에선 2개의 알고리즘을 선택했습니다.
-
-- 의사결정나무(Decision Tree)
-- 랜덤포레스트(Random Forest)
+본 프로젝트에선 다음의 알고리즘을 선택했습니다.
 
 #### 의사결정나무(Decision Tree)
 ![dt](./img/dt.png)
 데이터에 존재하는 임의의 규칙과 기준을, 학습을 통해 그림과 같은 Tree 형태의 분류 규칙을 만들어내는 모델을 의사결정나무라고 합니다.
-#### 랜덤포레스트(Random Forest)
-![rf](./img/rf.png)
-여러 개수의 decision tree를 형성하고 각각의 tree에 데이터를 동시에 통과시켜, 이 중에서 최적의 분류 결과를 찾는 모델을 랜덤포레스트하고 합니다. 하나의 데이터셋이 아닌 여러 서브 데이터 셋을 만든 뒤 각각의 tree 분류의 결과를 종합하는 앙상블 기법을 활용하기 때문에, 의사결정나무 모델의 과적합 단점을 어느 정도 극복한 모델입니다.
-
-두 알고리즘 모두 트리 계열 모델입니다. 이 모델들의 장점은 일반적으로 feature들을 정규화하거나 스케일링하는 작업이 필요없다는 것 입니다.
+이 모델의 장점은 일반적으로 feature들을 정규화하거나 스케일링하는 작업이 필요없다는 것 입니다.
 <br>또한, 수치형과 범주형 데이터를 모두 사용할 수 있어, One Hot Encoding과 같은 별도의 범주형 데이터 처리가 불필요하는 것도 장점이겠습니다.
 
 ## IV. Models & Evaluation
@@ -664,8 +657,27 @@ accuracy_test    #예측 모델의 테스트 세트 예측 점수
 >>>0.8856235976577465
 ```
 즉, **의사결정나무** 알고리즘으로 학습했을 때, 예측 점수 **88.56%의 정확도**를 보였습니다. 
-
-
+<br> 마지막으로 Confusion Matrix를 구한 뒤, 정밀도(Precision)와 재현률(Recall), F1점수를 계산하겠습니다.
+```Python
+#Confusion Matrix 시각화
+from sklearn.metrics import confusion_matrix
+CM = confusion_matrix(y_test, predict_test)
+CM_df = pd.DataFrame(CM, columns=['Alive', 'Dead'], index=['Alive', 'Dead'])    #예측 모델의 Confision Matrix 데이터프레임
+sns.heatmap(CM_df,annot=True, fmt="d", cmap='PuBu')    #시각화
+plt.ylabel('True Value', fontsize=15)
+plt.xlabel('Prediction', fontsize=15)
+plt.title('Confusion Matrix(Decision Tree)', fontsize=18)    #축 레이블과 제목 추가
+plt.savefig('dtcm.png')
+```
+```Python
+#Precision, Recall, F1 score 계산
+from sklearn.metrics import precision_score, recall_score, f1_score
+p = precision_score(y_test, predict_test)
+r = recall_score(y_test, predict_test)
+f1 = f1_score(y_test, predict_test)
+print(f'#정밀도 : {p:.2f}'+f'  #재현률 : {r:.2f}'+f'  #f1스코어 : {f1:.2f}')
+>>> #정밀도 : 0.33  #재현률 : 0.35  #f1스코어 : 0.34
+```
 ## V. Related Work 
 - Tools, libraries, blogs, or any documentation that you have used to do this project.
 - https://www.kaggle.com/datasets/mitishaagarwal/patient (Dataset)
@@ -674,7 +686,8 @@ accuracy_test    #예측 모델의 테스트 세트 예측 점수
 - https://ysyblog.tistory.com/71 (Label Encoding)
 - https://ysyblog.tistory.com/68 (Decision Tree 코딩)
 - https://regenerativetoday.com/simple-explanation-on-how-decision-tree-algorithm-makes-decisions/ (Decision Tree 설명)
-- https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/ (Random Forest 설명)
+- https://chrisalbon.com/code/python/data_visualization/seaborn_color_palettes/ (sns plot)
+- http://www.gisdeveloper.co.kr/?p=9932 (Confusion Matrix 코드 참고)
 
 ## VI. Conclusion & Discussion
 - Abstract
