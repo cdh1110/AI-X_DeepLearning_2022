@@ -718,3 +718,4 @@ print(f'#정밀도 : {p:.2f}'+f'  #재현률 : {r:.2f}'+f'  #f1스코어 : {f1:.
 
 #### Discussion
 <br>Python과 R을 ML에 적용하는 방법을 알게 되었습니다. Decision Tree 알고리즘의 특성과 원리를 이해할 수 있었습니다. 이번 프로젝트에는 트리 기반 모델만을 사용했지만, 다음 기회에는 one hot encoding 기법을 사용해 선형 모델(로지스틱, SVM, 신경망) 알고리즘에도 본 데이터셋을 적용하여 더욱 의미있는 프로젝트가 되었음 합니다.
+<br> 차도현, 물리학과, chamena1110@gmail.com (데이터셋 탐색, feature 분석, 데이터셋 가공, 코드 작성 및 실행, 블로그 작성, 유튜브 촬영) <br> Khaliun, 경제금융학부, haliunurgamaltuya@gmail.com (feature 분석 도움)
