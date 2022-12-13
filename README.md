@@ -4,6 +4,9 @@
 <br>블로그 링크: https://github.com/cdh1110/AI-X_DeepLearning_2022
 ## Members
 <br> 차도현, 물리학과, chamena1110@gmail.com (데이터셋 탐색, feature 분석, 데이터셋 가공, 코드 작성 및 실행, 블로그 작성, 유튜브 촬영) <br> Khaliun, 경제금융학부, haliunurgamaltuya@gmail.com (feature 분석 도움)
+## YouTube Link
+
+[![YouTube](https://img.youtube.com/vi/s9ta5gagG-I/0.jpg)](https://youtu.be/s9ta5gagG-I)
 
 ## Index
 ####    I. Proposal
